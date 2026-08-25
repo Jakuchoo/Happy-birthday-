@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İyiki doğdun iyiki varsın pyensim🥺😘</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #2d182b, #120914);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Spotify Çalar / Üst Bölüm */
+        .spotify-container {
+            position: absolute;
+            top: 15px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spotify-btn {
+            background-color: #1DB954;
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .spotify-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            margin-top: 50px;
+        }
+
+        /* Başlık - Mumlarla çakışmaması için mesafe artırıldı */
+        h1 {
+            color: #f3d5f9;
+            margin-bottom: 70px; /* Mumların üstünde kalması sağlandı */
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px rgba(230, 180, 255, 0.5);
+            padding: 0 10px;
+        }
+
+        .instruction {
+            color: #d8b4e2;
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* PASTA ALANI */
+        .cake-container {
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        /* 3 Katlı Çikolatalı Pasta */
+        .cake-tier {
+            margin: 0 auto;
+            background: linear-gradient(to right, #2b1509, #4a2816, #2b1509);
+            border-radius: 12px 12px 0 0;
+            position: relative;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+        }
+
+        /* Beyaz Krema Katmanları ve Süsler */
+        .white-cream {
+            position: absolute;
+            top: -6px;
+            left: 0;
+            width: 100%;
+            height: 14px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.8);
+        }
+
+        /* Taze Krema Sıkmaları (Dollops) */
+        .cream-dollops {
+            position: absolute;
+            top: -12px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            z-index: 3;
+        }
+
+        .dollop {
+            width: 16px;
+            height: 16px;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #e0e0e0);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Çikolata Rulo Gofretler & Süsler */
+        .wafer-roll {
+            position: absolute;
+            width: 8px;
+            height: 25px;
+            background: repeating-linear-gradient(45deg, #5c3a21, #5c3a21 3px, #8d5b38 3px, #8d5b38 6px);
+            border-radius: 3px;
+            top: -20px;
+        }
+
+        .gold-ball {
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle at 3px 3px, #fff2a1, #d4af37);
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+        }
+
+        .tier-top { width: 140px; height: 60px; z-index: 3; }
+        .tier-middle { width: 200px; height: 70px; z-index: 2; }
+        .tier-bottom { width: 260px; height: 80px; z-index: 1; }
+
+        /* GERÇEKÇİ MOR MUMLAR */
+        .candles {
+            position: absolute;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 22px;
+            z-index: 10;
+        }
+
+        .candle {
+            width: 10px;
+            height: 48px;
+            background: linear-gradient(to right, #6b2d5c, #9d4ecc, #521c45);
+            border-radius: 3px 3px 1px 1px;
+            position: relative;
+            box-shadow: inset 0 2px 2px rgba(255,255,255,0.4);
+        }
+
+        /* Fitil */
+        .candle::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 6px;
+            background: #222;
+        }
+
+        /* Gerçekçi Alev */
+        .flame {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 20px;
+            background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffea00 25%, #ff6a00 60%, rgba(255,0,0,0) 100%);
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 -2px 10px #ffea00, 0 -5px 20px #ff4500, 0 0 8px #9d4ecc;
+            animation: flicker 0.1s infinite alternate;
+            transform-origin: center bottom;
+        }
+
+        .flame.off { display: none; }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1) rotate(-1deg); }
+            100% { transform: translateX(-50%) scale(1.08) rotate(1deg); }
+        }
+
+        /* Kalp ve Konfeti Parçacıkları */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            animation: flyOut 2s ease-out forwards;
+        }
+
+        @keyframes flyOut {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--dx), var(--dy)) scale(1.5) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Spotify Üst Alanı -->
+    <div class="spotify-container">
+        <a href="https://open.spotify.com/track/7tuapf1aoAiydTgFuuVhV5?si=GAvRuB_4QaS3rDSVAlpjxg&utm_source=copy-link" target="_blank" class="spotify-btn">
+            <span>🎵</span> Spotify'da Şarkıyı Dinle
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>İyiki doğdun iyiki varsın pyensim🥺😘</h1>
+        
+        <div class="cake-container" id="cake" onclick="blowCandles()">
+            <!-- Gerçekçi Mor Mumlar -->
+            <div class="candles">
+                <div class="candle"><div class="flame" id="flame1"></div></div>
+                <div class="candle"><div class="flame" id="flame2"></div></div>
+                <div class="candle"><div class="flame" id="flame3"></div></div>
+            </div>
+
+            <!-- Üst Kat -->
+            <div class="cake-tier tier-top">
+                <div class="white-cream"></div>
+                <div class="cream-dollops">
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                </div>
+                <div class="wafer-roll" style="left: 20px;"></div>
+                <div class="wafer-roll" style="right: 20px;"></div>
+            </div>
+
+            <!-- Orta Kat -->
+            <div class="cake-tier tier-middle">
+                <div class="white-cream"></div>
+                <div class="cream-dollops">
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                </div>
+                <div class="gold-ball" style="left: 15px;"></div>
+                <div class="gold-ball" style="right: 15px;"></div>
+            </div>
+
+            <!-- Alt Kat -->
+            <div class="cake-tier tier-bottom">
+                <div class="white-cream"></div>
+                <div class="cream-dollops">
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                    <div class="dollop"></div>
+                </div>
+                <div class="wafer-roll" style="left: 30px;"></div>
+                <div class="gold-ball" style="left: 90px;"></div>
+                <div class="gold-ball" style="right: 90px;"></div>
+                <div class="wafer-roll" style="right: 30px;"></div>
+            </div>
+        </div>
+
+        <p class="instruction" id="instruction-text">Mumlara tıklayarak üfle! ✨</p>
+    </div>
+
+    <script>
+        let isBlown = false;
+
+        function blowCandles() {
+            if (isBlown) return;
+            isBlown = true;
+
+            const flame1 = document.getElementById('flame1');
+            const flame2 = document.getElementById('flame2');
+            const flame3 = document.getElementById('flame3');
+            const instructionText = document.getElementById('instruction-text');
+
+            // Alevleri söndür
+            flame1.classList.add('off');
+            flame2.classList.add('off');
+            flame3.classList.add('off');
+            instructionText.innerText = "Mumlar söndü! 5 saniye sonra tekrar yanacak... 🔥";
+
+            // Konfeti ve Kalp Efektini Başlat
+            createConfettiAndHearts();
+
+            // 5 Saniye sonra tekrar yak
+            setTimeout(() => {
+                flame1.classList.remove('off');
+                flame2.classList.remove('off');
+                flame3.classList.remove('off');
+                instructionText.innerText = "Mumlara tekrar tıklayarak üfleyebilirsin! ✨";
+                isBlown = false;
+            }, 5000);
+        }
+
+        function createConfettiAndHearts() {
+            const colors = ['#e0aaff', '#c77dff', '#7b2cbf', '#ffffff', '#ffb703', '#ff4d6d'];
+            const shapes = ['❤️', '💖', '✨', '🍫', '💜', '👑'];
+            const count = 90;
+
+            const cake = document.getElementById('cake');
+            const rect = cake.getBoundingClientRect();
+            const startX = rect.left + rect.width / 2;
+            const startY = rect.top + 10;
+
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                const isEmoji = Math.random() > 0.35;
+                if (isEmoji) {
+                    particle.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+                    particle.style.fontSize = (Math.random() * 22 + 14) + 'px';
+                } else {
+                    particle.style.width = (Math.random() * 10 + 6) + 'px';
+                    particle.style.height = (Math.random() * 10 + 6) + 'px';
+                    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                }
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 320 + 120;
+                const dx = Math.cos(angle) * distance + 'px';
+                const dy = (Math.sin(angle) * distance - 120) + 'px';
+
+                particle.style.left = startX + 'px';
+                particle.style.top = startY + 'px';
+                particle.style.setProperty('--dx', dx);
+                particle.style.setProperty('--dy', dy);
+
+                document.body.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
