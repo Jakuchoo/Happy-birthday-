@@ -12,7 +12,7 @@
         }
 
         body {
-            background: radial-gradient(circle at center, #2d182b, #120914);
+            background: radial-gradient(circle at center, #2e122b, #100513);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -23,114 +23,172 @@
             position: relative;
         }
 
-        /* Spotify Çalar / Üst Bölüm */
-        .spotify-container {
+        /* Arka Plan Doğum Günü Süsleri (Bayraklar) */
+        .garland {
             position: absolute;
-            top: 15px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            z-index: 1;
+        }
+
+        .flag {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 45px solid #d4a373;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+            animation: swing 3s ease-in-out infinite alternate;
+        }
+
+        .flag:nth-child(2n) { border-top-color: #9d4ecc; animation-delay: 0.5s; }
+        .flag:nth-child(3n) { border-top-color: #ff4d6d; animation-delay: 1s; }
+        .flag:nth-child(4n) { border-top-color: #ffb703; animation-delay: 1.5s; }
+        .flag:nth-child(5n) { border-top-color: #e63946; animation-delay: 2s; }
+
+        @keyframes swing {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        /* Müzik Butonu (Eski Sesi) */
+        .audio-control {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             z-index: 100;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .spotify-btn {
-            background-color: #1DB954;
-            color: #ffffff;
-            padding: 8px 18px;
+            background: rgba(157, 78, 204, 0.25);
+            border: 2px solid #9d4ecc;
+            color: #f3d5f9;
+            padding: 10px 18px;
             border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
+            cursor: pointer;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
-        .spotify-btn:hover {
-            transform: scale(1.05);
+        .audio-control:hover {
+            background: #9d4ecc;
+            color: #fff;
         }
 
         .container {
             text-align: center;
             position: relative;
             z-index: 10;
-            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Başlık - Mumlarla çakışmaması için mesafe artırıldı */
+        /* Başlık */
         h1 {
             color: #f3d5f9;
-            margin-bottom: 70px; /* Mumların üstünde kalması sağlandı */
-            font-size: 1.8rem;
-            text-shadow: 0 0 10px rgba(230, 180, 255, 0.5);
-            padding: 0 10px;
+            margin-bottom: 60px;
+            font-size: 1.9rem;
+            text-shadow: 0 0 12px rgba(230, 180, 255, 0.6);
+            padding: 0 15px;
         }
 
         .instruction {
             color: #d8b4e2;
-            margin-top: 30px;
+            margin-top: 35px;
             font-size: 1.1rem;
         }
 
-        /* PASTA ALANI */
+        /* AHŞAP MASA VE PASTA TABOĞU */
+        .table-setup {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .table {
+            position: absolute;
+            bottom: -35px;
+            width: 440px;
+            height: 40px;
+            background: linear-gradient(to bottom, #5a3825, #3b2316);
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.9), inset 0 2px 3px rgba(255,255,255,0.2);
+            z-index: 0;
+        }
+
+        .plate {
+            position: relative;
+            width: 320px;
+            height: 25px;
+            background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 -3px 8px rgba(0,0,0,0.15);
+            margin-bottom: -10px;
+            z-index: 1;
+        }
+
         .cake-container {
             position: relative;
-            width: 300px;
+            width: 280px;
             margin: 0 auto;
             cursor: pointer;
+            z-index: 2;
         }
 
-        /* 3 Katlı Çikolatalı Pasta */
+        /* Gerçekçi 3 Katlı Çikolatalı Pasta */
         .cake-tier {
             margin: 0 auto;
-            background: linear-gradient(to right, #2b1509, #4a2816, #2b1509);
+            background: linear-gradient(135deg, #4a2817 0%, #2b1509 50%, #1f0e05 100%);
             border-radius: 12px 12px 0 0;
             position: relative;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+            box-shadow: inset 0 2px 5px rgba(255,255,255,0.15), inset -5px 0 10px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.6);
         }
 
-        /* Beyaz Krema Katmanları ve Süsler */
-        .white-cream {
+        .white-cream-layer {
             position: absolute;
             top: -6px;
             left: 0;
             width: 100%;
-            height: 14px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(255,255,255,0.8);
+            height: 12px;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* Taze Krema Sıkmaları (Dollops) */
         .cream-dollops {
             position: absolute;
-            top: -12px;
+            top: -10px;
             width: 100%;
             display: flex;
             justify-content: space-around;
-            z-index: 3;
+            z-index: 4;
         }
 
         .dollop {
-            width: 16px;
-            height: 16px;
-            background: radial-gradient(circle at 30% 30%, #ffffff, #e0e0e0);
+            width: 14px;
+            height: 14px;
+            background: radial-gradient(circle at 35% 35%, #ffffff, #dcdcdc);
             border-radius: 50% 50% 50% 0;
             transform: rotate(-45deg);
-            box-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
         }
 
-        /* Çikolata Rulo Gofretler & Süsler */
-        .wafer-roll {
+        .choco-drip {
             position: absolute;
-            width: 8px;
-            height: 25px;
-            background: repeating-linear-gradient(45deg, #5c3a21, #5c3a21 3px, #8d5b38 3px, #8d5b38 6px);
-            border-radius: 3px;
-            top: -20px;
+            top: 4px;
+            left: 0;
+            width: 100%;
+            height: 16px;
+            background: #1a0b04;
+            clip-path: polygon(0 0, 100% 0, 100% 40%, 85% 100%, 70% 40%, 55% 85%, 40% 30%, 25% 90%, 10% 40%, 0 70%);
+            opacity: 0.9;
         }
 
         .gold-ball {
@@ -139,17 +197,30 @@
             background: radial-gradient(circle at 3px 3px, #fff2a1, #d4af37);
             border-radius: 50%;
             position: absolute;
-            top: -5px;
+            top: -4px;
+            z-index: 5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
 
-        .tier-top { width: 140px; height: 60px; z-index: 3; }
-        .tier-middle { width: 200px; height: 70px; z-index: 2; }
-        .tier-bottom { width: 260px; height: 80px; z-index: 1; }
+        .wafer-roll {
+            position: absolute;
+            width: 8px;
+            height: 24px;
+            background: repeating-linear-gradient(45deg, #5c3a21, #5c3a21 3px, #8d5b38 3px, #8d5b38 6px);
+            border-radius: 3px;
+            top: -18px;
+            z-index: 4;
+            box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+        }
 
-        /* GERÇEKÇİ MOR MUMLAR */
+        .tier-top { width: 130px; height: 55px; z-index: 3; }
+        .tier-middle { width: 190px; height: 65px; z-index: 2; }
+        .tier-bottom { width: 250px; height: 75px; z-index: 1; }
+
+        /* BEYAZ ÇİZGİLİ MOR MUMLAR */
         .candles {
             position: absolute;
-            top: -55px;
+            top: -50px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -158,37 +229,41 @@
         }
 
         .candle {
-            width: 10px;
+            width: 11px;
             height: 48px;
-            background: linear-gradient(to right, #6b2d5c, #9d4ecc, #521c45);
-            border-radius: 3px 3px 1px 1px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #8a2be2,
+                #8a2be2 6px,
+                #ffffff 6px,
+                #ffffff 10px
+            );
+            border-radius: 3px 3px 2px 2px;
             position: relative;
-            box-shadow: inset 0 2px 2px rgba(255,255,255,0.4);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.5), inset -1px 0 2px rgba(0,0,0,0.3);
         }
 
-        /* Fitil */
         .candle::before {
             content: '';
             position: absolute;
-            top: -6px;
+            top: -5px;
             left: 50%;
             transform: translateX(-50%);
             width: 2px;
-            height: 6px;
-            background: #222;
+            height: 5px;
+            background: #111;
         }
 
-        /* Gerçekçi Alev */
         .flame {
             position: absolute;
-            top: -22px;
+            top: -21px;
             left: 50%;
             transform: translateX(-50%);
             width: 12px;
             height: 20px;
             background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffea00 25%, #ff6a00 60%, rgba(255,0,0,0) 100%);
             border-radius: 50% 50% 20% 20%;
-            box-shadow: 0 -2px 10px #ffea00, 0 -5px 20px #ff4500, 0 0 8px #9d4ecc;
+            box-shadow: 0 -2px 10px #ffea00, 0 -5px 20px #ff4500, 0 0 10px #8a2be2;
             animation: flicker 0.1s infinite alternate;
             transform-origin: center bottom;
         }
@@ -200,11 +275,11 @@
             100% { transform: translateX(-50%) scale(1.08) rotate(1deg); }
         }
 
-        /* Kalp ve Konfeti Parçacıkları */
         .particle {
             position: absolute;
             pointer-events: none;
             animation: flyOut 2s ease-out forwards;
+            z-index: 99;
         }
 
         @keyframes flyOut {
@@ -221,64 +296,82 @@
 </head>
 <body>
 
-    <!-- Spotify Üst Alanı -->
-    <div class="spotify-container">
-        <a href="https://open.spotify.com/track/7tuapf1aoAiydTgFuuVhV5?si=GAvRuB_4QaS3rDSVAlpjxg&utm_source=copy-link" target="_blank" class="spotify-btn">
-            <span>🎵</span> Spotify'da Şarkıyı Dinle
-        </a>
+    <!-- Arka Plan Süsleri -->
+    <div class="garland">
+        <div class="flag"></div>
+        <div class="flag"></div>
+        <div class="flag"></div>
+        <div class="flag"></div>
+        <div class="flag"></div>
+        <div class="flag"></div>
+        <div class="flag"></div>
     </div>
+
+    <!-- Müzik Kontrol Butonu -->
+    <button class="audio-control" id="audioBtn" onclick="toggleAudio()">
+        <span id="audioIcon">🎵</span> <span id="audioText">Müziği Aç</span>
+    </button>
 
     <div class="container">
         <h1>İyiki doğdun iyiki varsın pyensim🥺😘</h1>
         
-        <div class="cake-container" id="cake" onclick="blowCandles()">
-            <!-- Gerçekçi Mor Mumlar -->
-            <div class="candles">
-                <div class="candle"><div class="flame" id="flame1"></div></div>
-                <div class="candle"><div class="flame" id="flame2"></div></div>
-                <div class="candle"><div class="flame" id="flame3"></div></div>
+        <div class="table-setup">
+            <div class="cake-container" id="cake" onclick="blowCandles()">
+                <!-- Mor-Beyaz Çizgili Mumlar -->
+                <div class="candles">
+                    <div class="candle"><div class="flame" id="flame1"></div></div>
+                    <div class="candle"><div class="flame" id="flame2"></div></div>
+                    <div class="candle"><div class="flame" id="flame3"></div></div>
+                </div>
+
+                <!-- Üst Kat -->
+                <div class="cake-tier tier-top">
+                    <div class="white-cream-layer"></div>
+                    <div class="choco-drip"></div>
+                    <div class="cream-dollops">
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                    </div>
+                    <div class="wafer-roll" style="left: 15px;"></div>
+                    <div class="wafer-roll" style="right: 15px;"></div>
+                </div>
+
+                <!-- Orta Kat -->
+                <div class="cake-tier tier-middle">
+                    <div class="white-cream-layer"></div>
+                    <div class="choco-drip"></div>
+                    <div class="cream-dollops">
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                    </div>
+                    <div class="gold-ball" style="left: 20px;"></div>
+                    <div class="gold-ball" style="right: 20px;"></div>
+                </div>
+
+                <!-- Alt Kat -->
+                <div class="cake-tier tier-bottom">
+                    <div class="white-cream-layer"></div>
+                    <div class="choco-drip"></div>
+                    <div class="cream-dollops">
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                        <div class="dollop"></div>
+                    </div>
+                    <div class="wafer-roll" style="left: 25px;"></div>
+                    <div class="gold-ball" style="left: 80px;"></div>
+                    <div class="gold-ball" style="right: 80px;"></div>
+                    <div class="wafer-roll" style="right: 25px;"></div>
+                </div>
             </div>
 
-            <!-- Üst Kat -->
-            <div class="cake-tier tier-top">
-                <div class="white-cream"></div>
-                <div class="cream-dollops">
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                </div>
-                <div class="wafer-roll" style="left: 20px;"></div>
-                <div class="wafer-roll" style="right: 20px;"></div>
-            </div>
-
-            <!-- Orta Kat -->
-            <div class="cake-tier tier-middle">
-                <div class="white-cream"></div>
-                <div class="cream-dollops">
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                </div>
-                <div class="gold-ball" style="left: 15px;"></div>
-                <div class="gold-ball" style="right: 15px;"></div>
-            </div>
-
-            <!-- Alt Kat -->
-            <div class="cake-tier tier-bottom">
-                <div class="white-cream"></div>
-                <div class="cream-dollops">
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                    <div class="dollop"></div>
-                </div>
-                <div class="wafer-roll" style="left: 30px;"></div>
-                <div class="gold-ball" style="left: 90px;"></div>
-                <div class="gold-ball" style="right: 90px;"></div>
-                <div class="wafer-roll" style="right: 30px;"></div>
-            </div>
+            <!-- Beyaz Tabak & Masa -->
+            <div class="plate"></div>
+            <div class="table"></div>
         </div>
 
         <p class="instruction" id="instruction-text">Mumlara tıklayarak üfle! ✨</p>
@@ -286,8 +379,104 @@
 
     <script>
         let isBlown = false;
+        let isAudioPlaying = false;
+        let audioCtx = null;
+        let nextNoteTime = 0;
+        let noteIndex = 0;
+        let timerId = null;
+
+        const notes = [
+            { note: 261.63, duration: 0.35 },
+            { note: 261.63, duration: 0.25 },
+            { note: 293.66, duration: 0.6 },
+            { note: 261.63, duration: 0.6 },
+            { note: 349.23, duration: 0.6 },
+            { note: 329.63, duration: 1.0 },
+
+            { note: 261.63, duration: 0.35 },
+            { note: 261.63, duration: 0.25 },
+            { note: 293.66, duration: 0.6 },
+            { note: 261.63, duration: 0.6 },
+            { note: 392.00, duration: 0.6 },
+            { note: 349.23, duration: 1.0 },
+
+            { note: 261.63, duration: 0.35 },
+            { note: 261.63, duration: 0.25 },
+            { note: 523.25, duration: 0.6 },
+            { note: 440.00, duration: 0.6 },
+            { note: 349.23, duration: 0.6 },
+            { note: 329.63, duration: 0.6 },
+            { note: 293.66, duration: 0.8 },
+
+            { note: 466.16, duration: 0.35 },
+            { note: 466.16, duration: 0.25 },
+            { note: 440.00, duration: 0.6 },
+            { note: 349.23, duration: 0.6 },
+            { note: 392.00, duration: 0.6 },
+            { note: 349.23, duration: 1.2 }
+        ];
+
+        function playNote(freq, duration) {
+            if (!audioCtx || !isAudioPlaying) return;
+            
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration - 0.05);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
+        function scheduler() {
+            if (!isAudioPlaying) return;
+            while (nextNoteTime < audioCtx.currentTime + 0.1) {
+                const current = notes[noteIndex];
+                playNote(current.note, current.duration);
+                nextNoteTime += current.duration + 0.08;
+                noteIndex = (noteIndex + 1) % notes.length;
+            }
+            timerId = setTimeout(scheduler, 50);
+        }
+
+        function toggleAudio() {
+            const btnText = document.getElementById('audioText');
+            const btnIcon = document.getElementById('audioIcon');
+
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            isAudioPlaying = !isAudioPlaying;
+
+            if (isAudioPlaying) {
+                btnText.innerText = "Müziği Kapat";
+                btnIcon.innerText = "🔊";
+                nextNoteTime = audioCtx.currentTime;
+                scheduler();
+            } else {
+                btnText.innerText = "Müziği Aç";
+                btnIcon.innerText = "🎵";
+                if (timerId) clearTimeout(timerId);
+            }
+        }
 
         function blowCandles() {
+            if (!isAudioPlaying && !audioCtx) {
+                toggleAudio();
+            }
+
             if (isBlown) return;
             isBlown = true;
 
@@ -296,16 +485,13 @@
             const flame3 = document.getElementById('flame3');
             const instructionText = document.getElementById('instruction-text');
 
-            // Alevleri söndür
             flame1.classList.add('off');
             flame2.classList.add('off');
             flame3.classList.add('off');
             instructionText.innerText = "Mumlar söndü! 5 saniye sonra tekrar yanacak... 🔥";
 
-            // Konfeti ve Kalp Efektini Başlat
             createConfettiAndHearts();
 
-            // 5 Saniye sonra tekrar yak
             setTimeout(() => {
                 flame1.classList.remove('off');
                 flame2.classList.remove('off');
